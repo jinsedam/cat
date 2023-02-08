@@ -4,10 +4,10 @@ from common.models import CommonModel
 
 class Au(CommonModel):
 
-    date = models.DateField()
-    sample_name = models.TextField(max_length=50)
-    HAuCl4_input_amount = models.FloatField()
-    Toluene_input_amount = models.FloatField()
+    date = models.DateField(null=True, blank=True)
+    sample_name = models.CharField(max_length=50, null=True, blank=True)
+    HAuCl4_input_amount = models.FloatField(null=True, blank=True)
+    Toluene_input_amount = models.FloatField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'Au'
@@ -16,17 +16,18 @@ class Au(CommonModel):
 
 class PEG(CommonModel):
 
-    date = models.DateField()
-    sample_name = models.TextField(max_length=50)
-    input_amount_MPEG = models.FloatField()
-    input_amount_TGA = models.FloatField()
-    input_amount_Toluene = models.FloatField()
-    operating_temperature = models.FloatField()
-    operating_RPM = models.FloatField()
-    start_date = models.DateTimeField()
-    end_date = models.DateTimeField()
-    taget_amount = models.FloatField()
-    real_output_amount = models.FloatField()
+    date = models.DateField(null=True, blank=True)
+    sample_name = models.CharField(max_length=50, null=True, blank=True)
+    MPEG_input_amount = models.FloatField(null=True, blank=True)
+    TGA_input_amount = models.FloatField(null=True, blank=True)
+    Toluene_input_amount = models.FloatField(null=True, blank=True)
+    operating_temperature = models.FloatField(null=True, blank=True)
+    operating_RPM = models.FloatField(null=True, blank=True)
+    start_date = models.DateTimeField(null=True, blank=True)
+    end_date = models.DateTimeField(null=True, blank=True)
+    duration_time = models.TimeField(null=True, blank=True)
+    taget_amount = models.FloatField(null=True, blank=True)
+    real_output_amount = models.FloatField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'PEG'
@@ -35,16 +36,16 @@ class PEG(CommonModel):
 
 class Au_PEG(CommonModel):
 
-    date = models.DateField()
-    sample_name = models.TextField(max_length=50)
-    which_Au = models.ForeignKey(Au, on_delete=models.PROTECT, related_name='Au_PEG')
-    which_PEG = models.ForeignKey(PEG, on_delete=models.PROTECT, related_name='Au_PEG')
-    Au_input_amount = models.FloatField()
-    PEG_input_amount = models.FloatField()
-    THF_input_amount = models.FloatField()
-    taget_output_amount = models.FloatField()
-    real_output_amount = models.FloatField()
-    Au_content = models.FloatField()
+    date = models.DateField(null=True, blank=True)
+    sample_name = models.CharField(max_length=50, null=True, blank=True)
+    which_Au = models.ForeignKey(Au, on_delete=models.PROTECT, related_name='Au_PEG', null=True, blank=True)
+    which_PEG = models.ForeignKey(PEG, on_delete=models.PROTECT, related_name='Au_PEG', null=True, blank=True)
+    Au_input_amount = models.FloatField(null=True, blank=True)
+    PEG_input_amount = models.FloatField(null=True, blank=True)
+    THF_input_amount = models.FloatField(null=True, blank=True)
+    taget_output_amount = models.FloatField(null=True, blank=True)
+    real_output_amount = models.FloatField(null=True, blank=True)
+    Au_content = models.FloatField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'Au_PEG'

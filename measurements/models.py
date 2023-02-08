@@ -1,6 +1,7 @@
 from django.db import models
 from common.models import CommonModel
 from catalysts.models import Catalyst
+from precursors.models import Au_PEG
 # Create your models here.
 
 
@@ -13,10 +14,10 @@ class ICP_OES(CommonModel):
 
 class GC(CommonModel):
 
-    which_sample = models.ForeignKey(Catalyst, on_delete=models.PROTECT, related_name='GC')
-    request_date = models.DateField()
-    completed_date = models.DateField()
-    CO_conversion = models.FloatField()
+    which_catalyst = models.ForeignKey(Catalyst, on_delete=models.PROTECT, related_name='GC', null=True, blank=True)
+    request_date = models.DateField(null=True, blank=True)
+    completed_date = models.DateField(null=True, blank=True)
+    CO_conversion = models.FloatField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'GC'
@@ -25,7 +26,10 @@ class GC(CommonModel):
 
 class BET(CommonModel):
 
-    which_semple = models.TextField()
+    which_catalyst = models.ForeignKey(Catalyst, on_delete=models.PROTECT, related_name='BET', null=True, blank=True)
+    request_date = models.DateField(null=True, blank=True)
+    completed_date = models.DateField(null=True, blank=True)
+    BET_surface_area = models.FloatField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'BET'
@@ -34,8 +38,10 @@ class BET(CommonModel):
 
 class TEM(CommonModel):
 
-    date = models.DateField()
-    which_sample = models.TextField()
+    which_catalyst = models.ForeignKey(Catalyst, on_delete=models.PROTECT, related_name='TEM', null=True, blank=True)
+    request_date = models.DateField(null=True, blank=True)
+    completed_date = models.DateField(null=True, blank=True)
+    photo = models.ImageField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'TEM'
@@ -44,9 +50,10 @@ class TEM(CommonModel):
 
 class TGA(CommonModel):
 
-    date = models.DateField()
-    which_Au_PEG = models.ForeignKey()
-    Au_content = models.FloatField()
+    which_Au_PEG = models.ForeignKey(Au_PEG, on_delete=models.PROTECT, related_name='TGA', null=True, blank=True)
+    request_date = models.DateField(null=True, blank=True)
+    completed_date = models.DateField(null=True, blank=True)
+    Au_content = models.FloatField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'TGA'
