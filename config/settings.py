@@ -33,8 +33,10 @@ CUSTOM_APPS = [
     'users.apps.UsersConfig',
     'catalysts.apps.CatalystsConfig',
     'precursors.apps.PrecursorsConfig',
-    'measurements.apps.MeasurementsConfig',
-
+    'dataBET.apps.DatabetConfig',
+    'dataGC.apps.DatagcConfig',
+    'dataTGA.apps.DatatgaConfig',
+    'dataTEM.apps.DatatemConfig',
 ]
 
 SYSTEM_APPS = [
@@ -46,7 +48,12 @@ SYSTEM_APPS = [
     'django.contrib.staticfiles',
 ]
 
-INSTALLED_APPS = CUSTOM_APPS + SYSTEM_APPS
+
+THIRD_PARTY_APPS = [
+    'rest_framework',
+]
+
+INSTALLED_APPS = CUSTOM_APPS + SYSTEM_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
