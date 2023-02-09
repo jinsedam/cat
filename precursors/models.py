@@ -38,8 +38,8 @@ class Au_PEG(CommonModel):
 
     date = models.DateField(null=True, blank=True)
     sample_name = models.CharField(max_length=50, null=True, blank=True)
-    Au = models.ForeignKey(Au, on_delete=models.PROTECT, related_name='Au_PEG', null=True, blank=True)
-    PEG = models.ForeignKey(PEG, on_delete=models.PROTECT, related_name='Au_PEG', null=True, blank=True)
+    which_Au = models.ForeignKey(Au, on_delete=models.PROTECT, related_name='Au_PEG', null=True, blank=True)
+    which_PEG = models.ForeignKey(PEG, on_delete=models.PROTECT, related_name='Au_PEG', null=True, blank=True)
     Au_input_amount = models.FloatField(null=True, blank=True)
     PEG_input_amount = models.FloatField(null=True, blank=True)
     THF_input_amount = models.FloatField(null=True, blank=True)
