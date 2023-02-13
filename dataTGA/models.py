@@ -1,7 +1,8 @@
 from django.db import models
 from common.models import CommonModel
-from precursors.models import Au_PEG
+from prec_Au_PEG.models import Info as Au_PEG
 # Create your models here.
+
 
 class Data(CommonModel):
     Au_PEG = models.ForeignKey(Au_PEG, on_delete=models.PROTECT, related_name='TGA',null=True, blank=True)

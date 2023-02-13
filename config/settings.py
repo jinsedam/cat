@@ -32,11 +32,14 @@ ALLOWED_HOSTS = []
 CUSTOM_APPS = [
     'users.apps.UsersConfig',
     'catalysts.apps.CatalystsConfig',
-    'precursors.apps.PrecursorsConfig',
+    'prec_Au.apps.PrecAuConfig',
+    'prec_PEG.apps.PrecPegConfig',
+    'prec_Au_PEG.apps.PrecAuPegConfig',
     'dataBET.apps.DatabetConfig',
     'dataGC.apps.DatagcConfig',
     'dataTGA.apps.DatatgaConfig',
     'dataTEM.apps.DatatemConfig',
+
 ]
 
 SYSTEM_APPS = [

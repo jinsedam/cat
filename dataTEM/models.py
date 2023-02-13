@@ -4,7 +4,7 @@ from django.db import models
 from django.db import models
 from common.models import CommonModel
 from catalysts.models import Catalyst
-from precursors.models import Au_PEG
+from prec_Au_PEG.models import Info as Au_PEG
 # Create your models here.
 
 class Data(CommonModel):

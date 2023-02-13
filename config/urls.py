@@ -19,6 +19,16 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    path('', include('catalysts.urls')),
     path('admin/', admin.site.urls),
     path('catalysts/', include('catalysts.urls')),
+    path('BET/', include('dataBET.urls')),
+    path('TEM/', include('dataTEM.urls')),
+    path('GC/', include('dataGC.urls')),
+    path('TGA/', include('dataTGA.urls')),
+    path('Au/', include('prec_Au.urls')),
+    path('PEG/', include('prec_PEG.urls')),
+    path('Au_PEG/', include('prec_Au_PEG.urls')),
+
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

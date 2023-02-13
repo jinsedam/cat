@@ -8,25 +8,23 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('prec_Au_PEG', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Catalyst',
+            name='Info',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
                 ('date', models.DateField(blank=True, null=True)),
                 ('sample_name', models.CharField(blank=True, max_length=50, null=True, unique=True)),
-                ('start_temperature', models.FloatField(blank=True, null=True)),
-                ('end_temperature', models.FloatField(blank=True, null=True)),
-                ('Au_PEG', models.ManyToManyField(blank=True, related_name='Catalysts', to='prec_Au_PEG.info')),
+                ('HAuCl4_input_amount', models.FloatField(blank=True, null=True)),
+                ('Toluene_input_amount', models.FloatField(blank=True, null=True)),
             ],
             options={
-                'verbose_name': 'Catalyst',
-                'verbose_name_plural': 'Catalyst_Set',
+                'verbose_name': 'Information',
+                'verbose_name_plural': 'Information',
             },
         ),
     ]
